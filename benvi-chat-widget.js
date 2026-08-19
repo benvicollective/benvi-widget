@@ -10,7 +10,7 @@ Usage — add this one line before </body>:
 
 data-number   required. WhatsApp number in international format, digits only (no +, no spaces).
 data-name     optional. Guest house name shown in the panel. Defaults to "Chat with us".
-data-greeting optional. Pre-filled WhatsApp message. Defaults to a generic booking question.
+data-greeting optional. Pre-filled WhatsApp message. Leave it out and WhatsApp opens with a blank box.
 */
 (function () {
   'use strict';
@@ -21,7 +21,9 @@ data-greeting optional. Pre-filled WhatsApp message. Defaults to a generic booki
   var rawNumber = scriptTag.getAttribute('data-number') || '';
   var number = rawNumber.replace(/[^\d]/g, '');
   var name = scriptTag.getAttribute('data-name') || 'Chat with us';
-  var greeting = scriptTag.getAttribute('data-greeting') || ('Hi, I\'d like to ask about a booking at ' + name + '.');
+  // No pre-filled message by default — WhatsApp opens with a blank box.
+  // Set data-greeting="..." on the script tag if a specific guest house wants one.
+  var greeting = scriptTag.getAttribute('data-greeting') || '';
 
   // Logo lives next to this script by default (same folder on whatever host serves it).
   // Override with data-logo="https://.../bc-monogram.jpg" if it's hosted somewhere else.
@@ -89,7 +91,7 @@ data-greeting optional. Pre-filled WhatsApp message. Defaults to a generic booki
   ].join('');
   document.head.appendChild(style);
 
-  var waUrl = 'https://wa.me/' + number + '?text=' + encodeURIComponent(greeting);
+  var waUrl = 'https://wa.me/' + number + (greeting ? ('?text=' + encodeURIComponent(greeting)) : '');
 
   var wrap = document.createElement('div');
   wrap.className = 'bcw-wrap';
