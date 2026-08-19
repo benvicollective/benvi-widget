@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hage Hall — demo page for the chat widget</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Bai Jamjuree', sans-serif;
+    background: #F1EDE4;
+    color: #2A2622;
+  }
+  header {
+    background: #1F3250;
+    color: #F1EDE4;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 42px;
+    margin: 0 0 12px;
+    color: #F1EDE4;
+  }
+  header p {
+    color: #C2A36B;
+    font-size: 16px;
+    margin: 0;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    line-height: 1.7;
+  }
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    color: #1F3250;
+  }
+  .note {
+    margin-top: 60px;
+    padding: 16px 20px;
+    background: #fff;
+    border-left: 3px solid #C2A36B;
+    font-size: 14px;
+    color: #8A8378;
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Bai+Jamjuree:wght@400;500;600&display=swap">
+</head>
+<body>
+
+<header>
+  <h1>Hage Hall</h1>
+  <p>Guest house — Cape Town</p>
+</header>
+
+<main>
+  <h2>This is a demo page, not the real site</h2>
+  <p>It exists so you can see the WhatsApp widget working exactly as it will on a real guest house website. Look to the bottom right corner. Click the button.</p>
+  <p>The panel that opens, the pre-filled WhatsApp message, and the "Start chat on WhatsApp" button all work live — this is wired to the real Hage Hall Twilio number.</p>
+
+  <div class="note">
+    This page loads the widget with:<br>
+    <code>data-number="27878133532" data-name="Hage Hall"</code><br>
+    Swap those two values and the widget re-points itself at any other guest house, no other changes needed.
+  </div>
+</main>
+
+<script src="benvi-chat-widget.js"
+        data-number="27878133532"
+        data-name="Hage Hall"
+        data-greeting="Hi, I'd like to ask about a booking at Hage Hall."></script>
+
+</body>
+</html>
